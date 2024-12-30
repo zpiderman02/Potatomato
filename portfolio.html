@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sathvik Dev - Portfolio</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('goku-black-8k-3840x2160-20027.png'); /* Local background image */
+            background-size: cover;  /* Cover the entire viewport */
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .portfolio-container {
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            padding: 30px;
+            border-radius: 10px;
+            width: 70%;
+            max-width: 700px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6); /* Drop shadow */
+            backdrop-filter: blur(10px); /* Blur effect */
+            opacity: 0.5;
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-family: 'Minecraft', sans-serif;
+            text-shadow: 0 0 15px #fff; /* Glow effect */
+            opacity: 1; /* Full opacity for text */
+        }
+
+        .section {
+            margin: 15px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1); /* Slight background color */
+            border-radius: 8px;
+            color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            opacity: 1; /* Full opacity for section text */
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            text-shadow: 0 0 8px #fff; /* Glow effect */
+        }
+
+        .section p {
+            font-size: 1.2rem;
+        }
+
+        .youtube-logo {
+            margin-top: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50px;
+            height: 50px;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png');
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .youtube-logo:hover {
+            transform: scale(1.1);
+        }
+
+        /* Link styling for the About Me link in the main page */
+        .header a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .header a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.7);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <a href="#about">About Me</a>
+        <a href="portfolio.html" target="_blank">Portfolio</a> <!-- Link to portfolio in a new tab -->
+    </div>
+
+    <div class="portfolio-container">
+        <h1>Sathvik Dev</h1>
+
+        <div class="section" id="about-me">
+            <h2>About Me</h2>
+            <p>Hi, I’m Sathvik. I’m passionate about software development and love creating innovative solutions. My skills include web development, game development, and automation.</p>
+        </div>
+
+        <div class="section">
+            <h2>Skills</h2>
+            <p>I have expertise in Python, JavaScript, HTML, CSS, and many other technologies. I'm always excited to learn and apply new tech.</p>
+        </div>
+
+        <div class="section">
+            <h2>Projects</h2>
+            <p>I’ve worked on a variety of projects, including games, automation tools, and web apps. Check my GitHub for more!</p>
+        </div>
+
+        <a href="https://www.youtube.com/channel/YOUR_CHANNEL_ID" target="_blank">
+            <div class="youtube-logo"></div>
+        </a>
+    </div>
+
+</body>
+</html>
