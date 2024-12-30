@@ -1,56 +1,49 @@
-from flask import Flask, request, send_file, jsonify
+from flask import Flask, request, jsonify, send_file
 from pytube import YouTube
 import os
 
 app = Flask(__name__)
 
-# Define the download folder
+# Directory to temporarily store downloaded videos
 DOWNLOAD_FOLDER = "downloads"
-
-# Ensure the download folder exists
 if not os.path.exists(DOWNLOAD_FOLDER):
     os.makedirs(DOWNLOAD_FOLDER)
 
 @app.route('/download', methods=['POST'])
 def download_video():
     try:
-        # Get the YouTube video URL and quality from the request
-        video_url = request.json.get('video_url')
-        quality = request.json.get('quality')
+        # Get the request data
+        data = request.json
+        video_url = data.get('video_url')
+        quality = data.get('quality')
 
         # Validate input
-        if not video_url or not quality:
-            return jsonify({"error": "Missing video URL or quality parameter"}), 400
+        if not video_url:
+            return jsonify({'error': 'No video URL provided'}), 400
 
-        # Download the video using pytube
+        # Download the YouTube video using pytube
         yt = YouTube(video_url)
+        video_stream = yt.streams.filter(res=quality, file_extension="mp4").first()
 
-        # Select stream based on quality
-        stream = None
-        if quality == '1080p':
-            stream = yt.streams.filter(res="1080p", file_extension='mp4').first()
-        elif quality == '720p':
-            stream = yt.streams.filter(res="720p", file_extension='mp4').first()
-        elif quality == '480p':
-            stream = yt.streams.filter(res="480p", file_extension='mp4').first()
-        elif quality == '4k':
-            stream = yt.streams.filter(res="2160p", file_extension='mp4').first()
+        if not video_stream:
+            return jsonify({'error': f'{quality} quality not available for this video.'}), 404
 
-        if not stream:
-            return jsonify({"error": "Video stream not found for the given quality"}), 404
+        # Save the video
+        video_file = video_stream.download(output_path=DOWNLOAD_FOLDER)
+        video_filename = os.path.basename(video_file)
 
-        # Download the video
-        file_path = stream.download(output_path=DOWNLOAD_FOLDER)
-
-        # Ensure the file exists and is the correct type
-        if not os.path.exists(file_path) or not file_path.endswith(".mp4"):
-            return jsonify({"error": "Downloaded file is corrupted or incorrect format"}), 500
-
-        # Send the file back to the user
-        return send_file(file_path, as_attachment=True)
-
+        # Send the file back to the client
+        return send_file(
+            os.path.join(DOWNLOAD_FOLDER, video_filename),
+            as_attachment=True,
+            download_name=video_filename
+        )
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/health', methods=['GET'])
+def health_check():
+    return jsonify({'status': 'Server is running!'})
 
 if __name__ == '__main__':
     app.run(debug=True)
