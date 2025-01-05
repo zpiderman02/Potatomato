@@ -3,240 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sathvik's</title>
+    <title>Links to GoFile Server</title>
     <style>
-        @font-face {
-            font-family: "Minecraft";
-            src: url('MinecraftRegular-Bmg3.otf');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            margin: 0;
-            padding: 0;
             font-family: Arial, sans-serif;
-            overflow: hidden;
-            background: url('sung-jinwoo-3840x2160-20233.jpg') no-repeat center center fixed;
-            background-size: cover;
-            color: #fff;
+            color: white;
+            background: url('sung-jinwoo-3840x2160-20233.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
 
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            filter: blur(7px);
-            opacity: 0.5;
+        .title {
+            font-size: 4rem;
+            text-shadow: 0 0 15px white;
+            margin-bottom: 1rem;
         }
 
-        .main-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+        .container {
             text-align: center;
-            padding: 40px;
-            background: rgba(0, 0, 0, 0.5);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-            border-radius: 10px;
-            backdrop-filter: blur(7px);
-        }
-
-        .main-container h1 {
-            font-family: "Minecraft", sans-serif;
-            font-size: 3rem;
-            text-shadow: 0 0 10px #fff;
-        }
-
-        .input-container {
-            margin: 20px 0;
-        }
-
-        input, select {
-            padding: 10px;
-            font-size: 1rem;
-            border: none;
-            border-radius: 5px;
-            margin: 10px 0;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-        }
-
-        button {
-            padding: 10px 20px;
-            font-size: 1rem;
-            border: none;
-            border-radius: 5px;
-            background-color: #444;
-            color: #fff;
-            cursor: pointer;
-            box-shadow: 0 2px 10px rgba(255, 255, 255, 0.5);
-            transition: transform 0.2s;
-        }
-
-        button:hover {
-            transform: scale(1.05);
-            background-color: #555;
         }
 
         .header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 20px;
-            background: rgba(0, 0, 0, 0.7);
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            font-size: 3rem;
+            text-shadow: 0 0 10px white;
+            margin-bottom: 2rem;
         }
 
-        .header a {
-            color: #fff;
-            text-decoration: none;
-            padding: 10px;
-            font-size: 1rem;
-            border-radius: 5px;
-            transition: background 0.2s;
-        }
-
-        .header a:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .sign-in {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 60%;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.8);
+        .box {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+            padding: 3rem;
             border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-            display: none;
+            width: 450px;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .sign-in h2 {
-            color: #fff;
-            margin-bottom: 20px;
-        }
-
-        .sign-in input {
+        .link {
             display: block;
-            margin: 10px auto;
-            padding: 10px;
+            font-size: 1.2rem;
+            text-decoration: none;
+            color: white;
+            margin: 1rem 0;
+            text-shadow: 0 0 5px white;
+            transition: color 0.3s;
+        }
+
+        .link:hover {
+            color: #00d1ff;
+        }
+
+        .sub-link {
+            display: block;
+            font-size: 1rem;
+            text-decoration: none;
+            color: white;
+            margin: 1.5rem 0;
+            text-shadow: 0 0 5px white;
+            transition: color 0.3s;
+        }
+
+        .sub-link:hover {
+            color: #00d1ff;
+        }
+
+        /* About Me Link Styling inside the box */
+        .about-me {
+            font-size: 1rem; /* Smaller font size */
+            text-decoration: none;
+            color: white;
+            margin-top: 1rem; /* Adds space between the other links */
+            text-shadow: 0 0 10px white;
+            transition: color 0.3s;
+            padding: 8px 16px;
             border-radius: 5px;
-            border: none;
+            background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+            display: inline-block;
         }
 
-        .sign-in button {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            color: #fff;
-            cursor: pointer;
-            box-shadow: 0 0 15px rgb(0, 255, 255);
+        .about-me:hover {
+            color: #00d1ff;
+            background: rgba(0, 0, 0, 0.8); /* Darken the background on hover */
         }
 
-        .sign-in button:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .show {
-            display: block !important;
-        }
-
-        .loader {
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            border-top: 4px solid #fff;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
     </style>
 </head>
 <body>
-    <div class="header">
-        <a href="#about">About Me</a>
-        <a href="portfolio.html" target="_blank">Portfolio</a> <!-- Link to portfolio page -->
-        <a href="#" onclick="showSignIn()">Sign In</a>
-    </div>
-
-    <div class="main-container">
-        <h1>IRON</h1>
-        <div class="input-container">
-            <input type="text" id="video-url" placeholder="Iam sathvik">
-            <select id=" Your quality">
-                <option value="Grammy">1080p</option>
-                <option value="Sister">720p</option>
-                <option value="Mother">480p</option>
-                <option value="Father">4K</option>
-            </select>
+    <div class="title">JXPITER</div>
+    <div class="container">
+        <div class="header">Windows</div>
+        <div class="box">
+            <a class="link" href="aftereffects.html">After Effects</a>
+            <a class="link" href="flstudio.html">FL Studio</a>
+            <a class="link" href="sonyvegas.html">Sony Vegas Pro</a>
+            <a class="link" href="mediaencoder.html">Media Encoder</a>
+            <a class="link" href="photoshop.html">Photoshop</a>
+            <!-- About Me link inside the box -->
+            <a class="about-me" href="aboutme.html">About Me</a>
         </div>
-        <button id="download-btn">Download</button>
-        <div id="loader" class="loader" style="display:none;"></div>
     </div>
-
-    <div id="sign-in" class="sign-in">
-        <h2>Sign In</h2>
-        <input type="email" placeholder="Email">
-        <input type="password" placeholder="Password">
-        <button>Send Verification Code</button>
-        <p>Already have an account? <a href="#" onclick="showLogin()">Login here</a></p>
-    </div>
-
-    <script>
-        function showSignIn() {
-            document.getElementById('sign-in').classList.add('show');
-        }
-
-        function showLogin() {
-            alert('Redirecting to login page...');
-        }
-
-        document.getElementById('download-btn').addEventListener('click', function() {
-            const videoUrl = document.getElementById('video-url').value;
-            const quality = document.getElementById('quality').value;
-
-            if (!videoUrl) {
-                alert("Please enter a valid YouTube URL");
-                return;
-            }
-
-            // Show loader animation
-            document.getElementById('loader').style.display = 'block';
-
-            fetch('/download', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ video_url: videoUrl, quality: quality }),
-            })
-            .then(response => response.blob())
-            .then(blob => {
-                const link = document.createElement('a');
-                link.href = URL.createObjectURL(blob);
-                link.download = 'video.mp4';
-                link.click();
-            })
-            .catch(error => {
-                alert('Error: ' + error.message);
-            })
-            .finally(() => {
-                // Hide loader animation
-                document.getElementById('loader').style.display = 'none';
-            });
-        });
-    </script>
 </body>
 </html>
