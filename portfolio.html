@@ -9,26 +9,27 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background-image: url('goku-black-8k-3840x2160-20027.png'); /* Local background image */
-            background-size: cover;  /* Cover the entire viewport */
+            background-image: url('sung-jinwoo-blue-3840x2160-20312.jpg');
+            background-size: cover;
             background-position: center;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            height: 100vh;
-            overflow: hidden;
+            min-height: 100vh;
+            overflow-y: scroll; /* Enable scrolling */
         }
 
         .portfolio-container {
-            background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            background: rgba(0, 0, 0, 0.5);
             padding: 30px;
             border-radius: 10px;
             width: 70%;
             max-width: 700px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6); /* Drop shadow */
-            backdrop-filter: blur(10px); /* Blur effect */
-            opacity: 0.5;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            opacity: 0.9;
+            margin-top: 50px; /* Ensure it's visible below header */
         }
 
         h1 {
@@ -36,24 +37,22 @@
             font-size: 3rem;
             margin-bottom: 20px;
             font-family: 'Minecraft', sans-serif;
-            text-shadow: 0 0 15px #fff; /* Glow effect */
-            opacity: 1; /* Full opacity for text */
+            text-shadow: 0 0 15px #fff;
         }
 
         .section {
             margin: 15px 0;
             padding: 20px;
-            background: rgba(255, 255, 255, 0.1); /* Slight background color */
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 8px;
             color: #fff;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-            opacity: 1; /* Full opacity for section text */
         }
 
         .section h2 {
             font-size: 1.8rem;
             margin-bottom: 15px;
-            text-shadow: 0 0 8px #fff; /* Glow effect */
+            text-shadow: 0 0 8px #fff;
         }
 
         .section p {
@@ -78,7 +77,19 @@
             transform: scale(1.1);
         }
 
-        /* Link styling for the About Me link in the main page */
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.7);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            z-index: 10;
+        }
+
         .header a {
             color: #fff;
             text-decoration: none;
@@ -91,23 +102,61 @@
             background-color: rgba(255, 255, 255, 0.2);
         }
 
-        .header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 20px;
+        /* Website Box (Fixed in top right corner) */
+        .website {
+            position: absolute;
+            top: 20px;
+            right: 20px;
             background: rgba(0, 0, 0, 0.7);
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-shadow: 0 0 5px white;
+            font-size: 1.2rem;
+            text-align: center;
+            z-index: 5;
         }
+
+        .website a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            text-shadow: 0 0 5px white;
+        }
+
+        .website a:hover {
+            color: #00d1ff;
+        }
+
+        /* Website Box with Blur Effect */
+        .website-box {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        .website-box h2 {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .website-box p {
+            font-size: 1.2rem;
+            color: #fff;
+        }
+
     </style>
 </head>
 <body>
 
     <div class="header">
-        <a href="#about">About Me</a>
-        <a href="portfolio.html" target="_blank">Portfolio</a> <!-- Link to portfolio in a new tab -->
+        <a href="https://www.youtube.com/@arthxredits_02">Subscribe To Me</a>
+        <a href="index1.html" target="_blank">Website</a>
+
     </div>
 
     <div class="portfolio-container">
@@ -128,7 +177,7 @@
             <p>I’ve worked on a variety of projects, including games, automation tools, and web apps. Check my GitHub for more!</p>
         </div>
 
-        <a href="https://www.youtube.com/channel/YOUR_CHANNEL_ID" target="_blank">
+        <a href="https://www.youtube.com/@arthxredits_02" target="_blank">
             <div class="youtube-logo"></div>
         </a>
     </div>
